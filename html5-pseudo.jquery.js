@@ -11,8 +11,10 @@
 // Rather than just function(elem){return type === "foo"}
 // we use elem.getAttribute("foo") because unknown input types are 
 // treated as type=text
-jQuery.each('search tel url email datetime date month week time datetime-local number range color'.split(' '),function(i,type){
-    jQuery.expr[":"][type] = function(elem){
-        return elem.getAttribute("type") === type;
-    };
-});
+(function($){
+  $.each('search tel url email datetime date month week time datetime-local number range color'.split(' '),function(i,type){
+      $.expr[":"][type] = function(elem){
+          return elem.getAttribute("type") === type;
+      };
+  });
+})(jQuery);
